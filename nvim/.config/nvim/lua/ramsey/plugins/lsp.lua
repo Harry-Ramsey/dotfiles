@@ -16,22 +16,24 @@ return {
   },
   {
     "neovim/nvim-lspconfig",
+    dependencies = { "hrsh7th/nvim-cmp" },
     event = { "BufReadPost" },
     config = function()
-      local lspconfig = require("lspconfig")
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
+      require("mason-lspconfig").setup_handlers {
+        -- Default setup for LSP autocomplete
+        function (server_name)
+          require("lspconfig")[server_name].setup({
+            capabilities = capabilities;
+          })
+        end,
+      }
 
-      -- Setup LSP Autocomplete
-      lspconfig.lua_ls.setup({
-        capabilities = capabilities,
-      })
-
-
-      -- Setup Keybinds
+      -- Setup Keybinds 
       vim.api.nvim_create_autocmd('LspAttach', {
         group = vim.api.nvim_create_augroup("UserLspConfig", {}),
-        callback = function(ev)
-        vim.keymap.set("n", "F", vim.lsp.buf.hover, { desc = "Show function documentation" })
+        callback = function()
+          vim.keymap.set("n", "F", vim.lsp.buf.hover, { desc = "Show function documentation" })
         end
       })
     end
