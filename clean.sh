@@ -4,7 +4,7 @@ for directory in */; do
 	stow -D --target=$HOME $directory
 done
 
-cache_path=("~/.cache/nvim/" "~/.local/share/nvim/")
+cache_path=("${HOME}/.cache/nvim" "${HOME}/.local/share/nvim")
 
 for directory in ${cache_path[@]}; do
 	echo "Removing $directory"
