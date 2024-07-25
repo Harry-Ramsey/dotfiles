@@ -33,7 +33,6 @@ return {
       vim.api.nvim_create_autocmd('LspAttach', {
         group = vim.api.nvim_create_augroup("UserLspConfig", {}),
         callback = function()
-          vim.keymap.set("n", "F", vim.lsp.buf.hover, { desc = "Show function documentation" })
         end
       })
     end
