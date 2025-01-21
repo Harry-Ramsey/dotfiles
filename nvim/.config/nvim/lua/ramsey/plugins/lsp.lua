@@ -18,6 +18,9 @@ return {
     "neovim/nvim-lspconfig",
     dependencies = { "hrsh7th/nvim-cmp" },
     event = { "BufReadPost" },
+    keys = {
+      { "<leader>fd", "<cmd> lua vim.lsp.buf.definition()<CR>", desc = "View function definition"},
+    },
     config = function()
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
       require("mason-lspconfig").setup_handlers {
