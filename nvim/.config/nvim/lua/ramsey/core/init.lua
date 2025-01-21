@@ -1,3 +1,5 @@
 require("ramsey.core.options")
 require("ramsey.core.autocommands")
+require("ramsey.core.clipboard")
 require("ramsey.core.relative-numbers")
+require("ramsey.core.indentation")
