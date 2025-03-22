@@ -7,7 +7,7 @@ return {
   },
   {
     "williamboman/mason-lspconfig.nvim",
-    event = {"BufReadPost" },
+    event = { "BufReadPost" },
     config = function()
       require("mason-lspconfig").setup({
         ensure_installed = {
@@ -21,29 +21,22 @@ return {
   },
   {
     "neovim/nvim-lspconfig",
-    dependencies = { "hrsh7th/nvim-cmp" },
+    dependencies = { "saghen/blink.cmp" },
     event = { "BufReadPost" },
     keys = {
       { "<leader>fd", "<cmd> lua vim.lsp.buf.definition()<CR>", desc = "View function definition"},
     },
     config = function()
-      local capabilities = require("cmp_nvim_lsp").default_capabilities()
+      local cmpengine = require("blink.cmp")
+      local capabilities = cmpengine.get_lsp_capabilities()
       require("mason-lspconfig").setup_handlers {
         -- Default setup for LSP autocomplete
         function (server_name)
           require("lspconfig")[server_name].setup({
-            capabilities = capabilities;
+            capabilities = capabilities
           })
-        end,
-      }
-
-      -- Setup Keybinds 
-      vim.api.nvim_create_autocmd('LspAttach', {
-        group = vim.api.nvim_create_augroup("UserLspConfig", {}),
-        callback = function()
         end
-      })
+      }
     end
   }
 }
-
