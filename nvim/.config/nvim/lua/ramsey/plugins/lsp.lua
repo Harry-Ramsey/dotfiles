@@ -1,12 +1,12 @@
 return {
   {
-    "williamboman/mason.nvim",
+    "mason-org/mason.nvim",
     config = function()
       require("mason").setup()
     end
   },
   {
-    "williamboman/mason-lspconfig.nvim",
+    "mason-org/mason-lspconfig.nvim",
     event = { "BufReadPost" },
     config = function()
       require("mason-lspconfig").setup({
@@ -29,14 +29,6 @@ return {
     config = function()
       local cmpengine = require("blink.cmp")
       local capabilities = cmpengine.get_lsp_capabilities()
-      require("mason-lspconfig").setup_handlers {
-        -- Default setup for LSP autocomplete
-        function (server_name)
-          require("lspconfig")[server_name].setup({
-            capabilities = capabilities
-          })
-        end
-      }
     end
   }
 }
