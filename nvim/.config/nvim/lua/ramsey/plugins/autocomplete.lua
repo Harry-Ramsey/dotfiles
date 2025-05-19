@@ -19,6 +19,9 @@ return {
         enabled = true,
       },
     },
+    signature = {
+      enabled = true,
+    },
     sources = {
       default = {
         "lsp",
