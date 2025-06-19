@@ -7,7 +7,7 @@ return {
   },
   {
     "mason-org/mason-lspconfig.nvim",
-    event = { "BufReadPost" },
+    event = { "BufReadPre" },
     config = function()
       require("mason-lspconfig").setup({
         ensure_installed = {
@@ -22,7 +22,7 @@ return {
   {
     "neovim/nvim-lspconfig",
     dependencies = { "saghen/blink.cmp" },
-    event = { "BufReadPost" },
+    event = { "BufReadPre" },
     keys = {
       { "<leader>fd", "<cmd> lua vim.lsp.buf.definition()<CR>", desc = "View function definition"},
     },
