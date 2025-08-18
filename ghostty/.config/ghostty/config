@@ -1,0 +1,14 @@
+# Apperance
+theme = TokyoNight
+mouse-hide-while-typing = true
+font-size = 12
+font-feature = -calt
+
+# Clipboard
+clipboard-read = allow
+clipboard-write = allow
+clipboard-trim-trailing-spaces = true
+clipboard-paste-protection = true
+
+# MacOS Specific options
+quit-after-last-window-closed=true
