@@ -9,12 +9,12 @@ hl.monitor ({
 local mainMod = "SUPER"
 local terminal = "ghostty"
 local fileManager = "dolphin"
-local menu = "hyprlauncher"
+
+local noctaliaIPC = "qs -c noctalia-shell ipc call "
 
 -- Autostart
 hl.on("hyprland.start", function ()
-    hl.exec_cmd("waybar")
-    hl.exec_cmd("swaync")
+    hl.exec_cmd("qs -c noctalia-shell")
 end)
 
 hl.config({
@@ -118,10 +118,10 @@ hl.animation({ leaf = "zoomFactor",    enabled = true,  speed = 7,    bezier = "
 
 hl.bind(mainMod .. "+ Q", hl.dsp.exec_cmd(terminal))
 hl.bind(mainMod .. "+ C", hl.dsp.window.close())
-hl.bind(mainMod .. "+ M", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch exit"))
+hl.bind(mainMod .. "+ M", hl.dsp.exec_cmd(noctaliaIPC .. "lockScreen lock"))
 hl.bind(mainMod .. "+ E", hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. "+ F", hl.dsp.exec_cmd("firefox"))
-hl.bind(mainMod .. "+ R", hl.dsp.exec_cmd(menu))
+hl.bind(mainMod .. "+ R", hl.dsp.exec_cmd(noctaliaIPC .. "launcher toggle"))
 
 -- Move focus with mainMod + arrow keys
 hl.bind(mainMod .. " + h", hl.dsp.focus({ direction = "right" }))
