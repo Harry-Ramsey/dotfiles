@@ -115,3 +115,7 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+for dir in "$HOME/.scripts/"*/; do
+  export PATH=$dir:$PATH
+done
