@@ -1,0 +1,47 @@
+prefix_rule(
+    pattern = ["rg"],
+    decision = "allow",
+    justification = "Search through files for relevant text",
+)
+
+prefix_rule(
+    pattern = ["fd"],
+    decision = "allow",
+    justification = "Search through directory for files/directory"
+)
+
+prefix_rule(
+    pattern = ["git", "diff"],
+    decision = "allow",
+    justification = "Viewing changes between git commits",
+)
+
+prefix_rule(
+    pattern = ["git", "diff"],
+    decision = "allow",
+    justification = "Viewing changes between git commits",
+)
+
+prefix_rule(
+    pattern = ["git", "status"],
+    decision = "allow",
+    justification = "Viewing the status of the gir repository",
+)
+
+prefix_rule(
+    pattern = ["git", "add"],
+    decision = "forbidden",
+    justification = "Never add files to git index",
+)
+
+prefix_rule(
+    pattern = ["git", "commit"],
+    decision = "forbidden",
+    justification = "Never create commits",
+)
+
+prefix_rule(
+    pattern = ["git", "push"],
+    decision = "forbidden",
+    justification = "Never upstream code for me",
+)
